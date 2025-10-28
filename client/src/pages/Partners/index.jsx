@@ -11,6 +11,7 @@ import searchVector from '@/assets/images/searchVector.png'
 import axios from 'axios'
 import { CheckCircle } from "lucide-react";
 import { uuid } from 'zod'
+import { Spin } from 'antd'
 
 const Partners = () => {
 
@@ -20,6 +21,31 @@ const Partners = () => {
   const [leadMsg, setLeadMsg] = useState(""); // success / error mesajı
   const [successOpen, setSuccessOpen] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
+  const [venues, setVenues] = useState([])
+
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8001/api/venues")
+      .then((res) => {
+        const gyms = (res.data.data || []).sort(
+          (a, b) => new Date(a.created_at) - new Date(b.created_at)
+        ).slice(5, 9);;
+        setVenues(gyms)
+      })
+      .catch((err) => console.error("Gym fetch error:", err))
+      .finally(() => setLoading(false))
+  }, [])
+
+
+  if (leadLoading) {
+    return (
+      <div className={styles.loaderWrapper}>
+        <Spin size="large" tip={t("loading")} />
+      </div>
+    );
+  }
+
 
 
 
@@ -193,7 +219,27 @@ const Partners = () => {
           <h2>Sektorun qabaqcıl adları platformamızı seçdi.<p> Onlarla siz də tanış olun.</p></h2>
         </div>
         <div className={styles.featuredPartnersCards}>
-
+          {
+            venues.map((venues) => {
+              return (
+                <div className={styles.featuredPartnersCard}>
+                <div className={styles.cardImg}>
+                  <img src={venues.image} />
+                </div>
+                <div className={styles.cardContent}>
+                  <h3 className={styles.title}>{venues.name}</h3>
+                  <div className={styles.subTitle}>
+                    <div className={styles.venuesRating}>
+                      <span className={styles.rating}>★ {venues.rating}</span>
+                      <span className={venues.description}>{venues.description}</span>
+                    </div>
+                    <p className={styles.location}>{venues.location}</p>
+                  </div>
+                </div>
+                </div>
+              )
+            })
+          }
         </div>
       </section>
 

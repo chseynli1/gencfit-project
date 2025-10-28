@@ -17,7 +17,7 @@ const Gyms = () => {
       .then((res) => {
         const gyms = (res.data.data || []).sort(
           (a, b) => new Date(a.created_at) - new Date(b.created_at)
-        );
+        ).slice(0, 5);;
         setGyms(gyms)
       })
       .catch((err) => console.error("Gym fetch error:", err))

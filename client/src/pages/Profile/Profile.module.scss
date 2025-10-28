@@ -67,7 +67,7 @@
           font-size: 12px;
           opacity: 0.9;
 
-          img{
+          img {
             background: none;
           }
         }
@@ -260,6 +260,26 @@
     gap: 30px;
     width: 1183px fit-content;
     min-height: 252px;
+
+
+    .sectionHeader {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      h2 {
+        color: #022bd1;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .line {
+        width: 1264px;
+        height: 1px;
+        background-color: #95a6ec;
+        border-radius: 10px;
+      }
+    }
 
 
     .appointmentsCards {
@@ -497,6 +517,29 @@
     color: #dc2626;
     font-size: 12px;
   }
+
+
+  .reviews {
+    .sectionHeader {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      h2 {
+        color: #022bd1;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .line {
+        width: 1264px;
+        height: 1px;
+        background-color: #95a6ec;
+        border-radius: 10px;
+      }
+    }
+  }
+
 
   /* Reviews section */
   .reviewsSection {
