@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8001/api",
+  baseURL: "https://gencfit-backend-1-7w4x.onrender.com/api",
 });
 
 api.interceptors.request.use((config) => {

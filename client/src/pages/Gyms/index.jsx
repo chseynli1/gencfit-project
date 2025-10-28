@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Gyms.module.scss'
 import { useTranslation } from "react-i18next";
-import axios from 'axios';
+import api from "@/api";
 import { Spin } from "antd";
 import starIcon from '@/assets/images/starIcon.png'
 import locationIcon2 from '@/assets/images/locationIcon2.png'
@@ -12,8 +12,8 @@ const Gyms = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8001/api/venues")
+    api
+      .get("/venues")
       .then((res) => {
         const gyms = (res.data.data || []).sort(
           (a, b) => new Date(a.created_at) - new Date(b.created_at)

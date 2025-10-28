@@ -8,7 +8,7 @@ import usersImg from '@/assets/images/users.png'
 import usersVector from '@/assets/images/usersVector.png'
 import queryVector from '@/assets/images/queryVector.png'
 import searchVector from '@/assets/images/searchVector.png'
-import axios from 'axios'
+import api from "@/api"
 import { CheckCircle } from "lucide-react";
 import { uuid } from 'zod'
 import { Spin } from 'antd'
@@ -25,8 +25,8 @@ const Partners = () => {
 
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8001/api/venues")
+    api
+      .get("/venues")
       .then((res) => {
         const gyms = (res.data.data || []).sort(
           (a, b) => new Date(a.created_at) - new Date(b.created_at)
@@ -52,7 +52,7 @@ const Partners = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await axios.get('http://localhost:8001/api/reviews')
+        const res = await api.get('/reviews')
 
         // backend cavabını yoxlayaq:
         // Əgər res.data massivdirsə -> birbaşa istifadə et
@@ -98,7 +98,7 @@ const Partners = () => {
       setLeadLoading(true);
       setLeadMsg("");
 
-      const { data } = await axios.post("/api/partners/inquiries", { phone: fullNumber });
+      const { data } = await api.post("/partners/inquiries", { phone: fullNumber });
 
       if (data?.success) {
         setLeadMsg("");

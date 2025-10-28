@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import styles from "./Chatbot.module.scss";
 import { Send, MessageCircle, X } from "lucide-react";
-import axios from "axios";
+import api from "@/api";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -104,7 +104,7 @@ const Chatbot = () => {
     setIsTyping(true);
 
     try {
-      const res = await axios.post("http://localhost:8001/api/chat", {
+      const res = await api.post("/chat", {
         message: userMessage,
       });
 

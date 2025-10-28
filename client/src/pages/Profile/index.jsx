@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./Profile.module.scss";
-import axios from "axios";
+import api from "@/api";
 import { Pencil, X } from "lucide-react";
 import phoneVector from "@/assets/images/phoneVector.png";
 import locationVector from "@/assets/images/locationVector.png";
@@ -45,12 +45,12 @@ const Profile = () => {
   const token = useMemo(() => localStorage.getItem("token"), []);
 
 
-  // Axios default header (istəsən çıxarıb yalnız sorğularda da verə bilərsən)
+  // Api default header (istəsən çıxarıb yalnız sorğularda da verə bilərsən)
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     } else {
-      delete axios.defaults.headers.common["Authorization"];
+      delete api.defaults.headers.common["Authorization"];
     }
   }, [token]);
 
@@ -59,7 +59,7 @@ const Profile = () => {
     const fetchProfile = async () => {
       setLoading(true);
       try {
-        const res = await axios.get("/api/users/me"); // BE: { user: { ... } } qaytarır kimi nəzərdə tutulub
+        const res = await api.get("/users/me"); // BE: { user: { ... } } qaytarır kimi nəzərdə tutulub
         const me = res.data?.user || res.data?.data || null;
         setUser((prev) => ({ ...(prev || {}), ...me })); // merge et
         if (me?.image) localStorage.setItem("profile_image", me.image);
@@ -122,7 +122,7 @@ const Profile = () => {
       // Backendində update endpoint adın fərqlidirsə uyğunlaşdır:
       // Məs: PUT /api/users/me  və ya  PUT /api/users/profile/:id
       // Burada /me istifadə edirik ki, id ötürməyə ehtiyac qalmasın
-      const res = await axios.put("/api/users/me", payload, {
+      const res = await api.put("/users/me", payload, {
         headers: { "Content-Type": "application/json" },
       });
 
@@ -162,8 +162,8 @@ const Profile = () => {
     try {
       setPwLoading(true);
       // Backend: PUT /api/users/change-password  { oldPassword, newPassword }
-      await axios.put(
-        "/api/users/change-password",
+      await api.put(
+        "/users/change-password",
         { oldPassword, newPassword },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -189,7 +189,7 @@ const Profile = () => {
     const fetchAppointments = async () => {
       try {
         setApptsLoading(true);
-        const res = await axios.get("/api/appointments", {
+        const res = await api.get("/appointments", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAllAppointments(res.data.data || res.data || []);
@@ -227,8 +227,8 @@ const Profile = () => {
     }
 
     try {
-      const res = await axios.post(
-        "/api/appointments",
+      const res = await api.post(
+        "/appointments",
         {
           venue_id: selectedVenueId,
           appointment_date: appointmentDateTime.toISOString(),
@@ -262,7 +262,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchVenues = async () => {
       try {
-        const res = await axios.get("/api/venues", {
+        const res = await api.get("/venues", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setVenues(res.data.data || res.data);
@@ -342,7 +342,7 @@ const Profile = () => {
         setReviewsLoading(true);
 
         const meId = String(user._id || user.id || "");
-        const { data } = await axios.get("/api/reviews", {
+        const { data } = await api.get("/reviews", {
           params: { user_id: meId, userId: meId },
         });
         const list = (data?.data || data || []);
@@ -390,7 +390,7 @@ const Profile = () => {
         }
 
         tasks.push(
-          axios.get(url)
+          api.get(url)
             .then(({ data }) => {
               const payload = data?.data || data || {};
               const name = payload.name || payload.title || "—";
@@ -436,7 +436,7 @@ const Profile = () => {
       const fd = new FormData();
       fd.append("image", file);
 
-      const response = await axios.put("/api/users/me/avatar", fd, {
+      const response = await api.put("/users/me/avatar", fd, {
         headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (evt) => {
           if (evt.total)

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "@/api";
 import { Spin } from "antd";
 import { useTranslation } from "react-i18next";
 import styles from "./Blog.module.scss";
@@ -11,8 +11,8 @@ const BlogPage = () => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8001/api/blogs?page=1&limit=30")
+    api
+      .get("/blogs?page=1&limit=30")
       .then((res) => {
         const blogs = (res.data.data || []).sort(
           (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
