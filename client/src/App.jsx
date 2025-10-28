@@ -8,7 +8,7 @@ import { SearchProvider } from "./context/SearchContext";
 import Chatbot from "./pages/Chatbot";
 function App() {
   const [searchResults, setSearchResults] = useState([]);
-
+  console.log("API URL:", import.meta.env.VITE_API_URL);
   return (
     <SearchProvider>
       <Header onSearchResults={setSearchResults} />
