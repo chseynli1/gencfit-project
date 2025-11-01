@@ -1,8 +1,9 @@
 .gymsContainer {
     display: flex;
-    height: 1180px;
-    width: 870px;
-    padding: 30px 130px 0 130px;
+    height: auto;
+    width: 100%;
+    max-width: 1180px;
+    padding: 30px 130px 50px 130px;
     gap: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -32,6 +33,7 @@
         flex-direction: column;
         gap: 20px;
         color: #2B2C30;
+        
 
         .card {
             display: flex;
@@ -39,9 +41,18 @@
             width: 380px;
             height: 125px;
             justify-content: space-between;
+            cursor: pointer;
+            transition: transform .12s ease, box-shadow .12s ease;
+            border-radius: 5px;
+            overflow: hidden;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
+            }
 
             &:not(:last-child) {
-                border-bottom: 1px solid #B0B0B0; // boz xətt
+                border-bottom: 1px solid #B0B0B0; 
             }
 
 
@@ -122,6 +133,33 @@
     align-items: center;
     height: 100vh;
 }
+
+
+.moreWrap {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 0;
+}
+
+.moreBtn {
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #022BD1;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter .15s ease, transform .08s ease;
+}
+
+.moreBtn:hover {
+    filter: brightness(1.05);
+}
+
+.moreBtn:active {
+    transform: translateY(1px);
+}
+
 
 
 @media (max-width: 1200px),

@@ -1,0 +1,1 @@
+export const makeDetailUrl = (type, id) => `/details/${type}/${id}`;

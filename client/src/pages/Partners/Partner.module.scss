@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 400vh;
+    overflow: hidden;
 
     .firstSection {
         width: 1180px;
@@ -314,7 +315,7 @@
 
     .reviews {
         width: 1180px;
-        height: 406px;
+        height: auto;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         margin: 100px;
 
@@ -340,11 +341,12 @@
 
         .reviewsCards {
             display: flex;
+            flex-wrap: wrap;
             gap: 20px;
 
             .reviewCard {
                 width: 580px;
-                height: 206px;
+                height: auto;
                 background-color: #FFFFFF;
                 border: 1px solid #9399A7;
                 border-radius: 10px;

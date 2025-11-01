@@ -1,7 +1,7 @@
 export const Urls = {
     HOME: '/',
     ABOUT: '/about',
-    DETAIL: '/details',
+    DETAIL: '/details/:type/:id',
     SERVICES: '/services',
     CONTACT: '/contact',
     LOGIN: '/login',

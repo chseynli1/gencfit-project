@@ -1,0 +1,176 @@
+/* src/components/Chatbot/Chatbot.module.scss */
+
+/* Layihənin palitrası */
+:root {
+    --gf-blue-1: #0b58ff;
+    --gf-blue-2: #042abf;
+    --gf-blue-3: #0aa3ff;
+    /* sərhəd effekti üçün açıq göy */
+    --gf-text: #0f172a;
+    --gf-muted: #64748b;
+    --gf-border: #e6e9f2;
+    --gf-accent: #ff8a3b;
+    /* aşağı naviqasiya üçün narıncı */
+    --radius-xl: 22px;
+    --radius-lg: 18px;
+    --radius-md: 12px;
+}
+
+/* Sürüşən fab düyməsi (aç/bağla) */
+.chatFab {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    display: grid;
+    place-items: center;
+    background: var(--gf-blue-1);
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 12px 30px rgba(9, 30, 66, .25);
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    background: none;
+
+    &:hover {
+        box-shadow: 0 14px 38px rgba(9, 30, 66, .28);
+    }
+
+    &:active {
+        transform: translateY(1px) scale(.98);
+    }
+}
+
+/* Açılan pəncərə */
+.chatSheet {
+    position: fixed;
+    right: 16px;
+    bottom: 88px;
+    /* alt naviqasiya ilə toqquşmasın */
+    width: min(440px, calc(100vw - 32px));
+    height: 72vh;
+    background: #fff;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    z-index: 1000;
+
+    /* şəkilə bənzər parlaq göy sərhəd + kölgə */
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow:
+        0 24px 60px rgba(2, 20, 77, .28),
+        inset 0 0 0 2px rgba(10, 163, 255, .12);
+}
+
+@media (max-width: 480px) {
+    .chatSheet {
+        right: 10px;
+        left: 10px;
+        width: auto;
+        height: 76vh;
+    }
+}
+
+/* Başlıq – gradient */
+.header {
+    position: relative;
+    background: linear-gradient(180deg, var(--gf-blue-1) 0%, var(--gf-blue-2) 100%);
+    color: #fff;
+    padding: 18px 18px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.titleWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 24px;
+    background: none;
+    letter-spacing: .2px;
+}
+
+.subtitle {
+    font-size: 18px;
+    background: none;
+    opacity: .95;
+}
+
+/* İç məzmun */
+.body {
+    padding: 14px;
+    height: calc(100% - 76px - 70px);
+    /* header + bottomNav */
+    overflow: hidden;
+    /* child-larda scroll olacaq */
+}
+
+/* Aşağı naviqasiya */
+.bottomNav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    background: #fff;
+    border-top: 1px solid var(--gf-border);
+    height: 70px;
+}
+
+.navItem {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    color: #1f2937;
+    font-size: 12px;
+    transition: color .15s ease, transform .12s ease;
+
+    svg {
+        opacity: .9;
+    }
+
+    &:active {
+        transform: translateY(1px) scale(.98);
+    }
+}
+
+/* Aktiv tab – narıncı ikon+etiket (şəkildəki kimi) */
+.active {
+    color: var(--gf-accent);
+
+    svg {
+        color: var(--gf-accent);
+    }
+}
+
+/* --- Scrollbar estetikası (WebKit) --- */
+.body *::-webkit-scrollbar {
+    width: 8px;
+}
+
+.body *::-webkit-scrollbar-thumb {
+    background: #d8deea;
+    border-radius: 999px;
+}
+
+.body *::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* --- Kiçik util sinifləri (istəsən istifadə edə bilərsən) --- */
+.isOpen {
+    background: none;
+}
+
+/* fab üçün lazımdırsa override-lar əlavə edə bilərsən */

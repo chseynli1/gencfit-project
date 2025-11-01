@@ -127,6 +127,7 @@ const Header = ({ onSearchResults }) => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <img className={styles.logoImg} src={logo} alt="GencFit" />
+        {/* <img className={styles.fondImg} src="https://agma.az/uploads/partners/Untitled-1.png" /> */}
       </div>
 
       <button className={styles.burger} onClick={toggleMenu} aria-label="Menu">

@@ -1,6 +1,6 @@
 import { Urls } from '../shared/constants/Urls'
 import React from 'react'
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import Home from './Home'
 import About from './About'
 import Services from './Services'

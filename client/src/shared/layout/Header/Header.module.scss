@@ -19,6 +19,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    display: flex;
+    gap: 30px;
 }
 
 .logoImg {
@@ -28,6 +30,11 @@
     display: block;
     object-fit: contain;
 }
+
+// .fondImg{
+//   width: 200px;
+//   height: 40px;
+// }
 
 .logoBlue {
     color: #0051ff;
