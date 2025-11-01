@@ -146,3 +146,224 @@
     color: #022BD1;
     white-space: nowrap;
 }
+
+
+
+@media (max-width: 1280px) {
+    .login {
+        padding: 40px 48px;
+        gap: 24px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .loginRight {
+        width: 640px;
+        height: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .login {
+        padding: 32px 32px;
+        gap: 20px;
+    }
+
+    .loginImg {
+        width: 420px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .loginRight {
+        width: 560px;
+        height: auto;
+        padding: 16px;
+    }
+
+    .loginRightForm .loginFormInp {
+        width: 520px;
+    }
+
+    .loginRightForm .loginFormBottom .loginFormBtn {
+        width: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    .login {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .loginImg {
+        width: 100%;
+        max-width: 820px;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .loginRight {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .loginRightForm .loginFormInp,
+    .socialSection {
+        width: 100%;
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login {
+        padding: 24px 20px;
+        gap: 16px;
+    }
+
+    .loginRight {
+        max-width: 640px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .loginRight .loginDivh2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .loginRightForm {
+        gap: 20px;
+    }
+
+    .loginRightForm .loginFormInp {
+        width: 100%;
+        max-width: 520px;
+        height: 44px;
+    }
+
+    .loginRightForm .loginFormBottom {
+        flex-direction: column;
+        gap: 12px;
+
+        .loginFormBtn {
+            width: 100%;
+            max-width: 520px;
+            height: 48px;
+        }
+
+        .loginFormLink {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .login {
+        padding: 20px 12px;
+    }
+
+    .loginRight {
+        padding: 14px;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 100%;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login {
+        padding: 16px 0 !important;
+        overflow-x: hidden;
+    }
+
+    .loginRight {
+        margin: 0 12px;
+        padding: 12px;
+    }
+
+    .loginRightForm {
+        gap: 16px;
+    }
+
+    .loginRightForm .loginFormInp {
+        height: 46px;
+    }
+
+    .loginRightForm .loginFormBottom .loginFormBtn {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .dividerText {
+        font-size: 11px;
+    }
+
+    .divider::before,
+    .divider::after {
+        max-width: 100px;
+    }
+
+    :global(html),
+    :global(body) {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .loginRight .loginDivh2 {
+        font-size: 22px;
+    }
+
+    .loginRight {
+        margin: 0 8px;
+        padding: 10px;
+    }
+
+    .loginRightForm .loginFormBottom .loginFormBtn {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    .divider::before,
+    .divider::after {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 320px) {
+    .loginRight {
+        margin: 0 6px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .loginRight .loginDivh2 {
+        font-size: 20px;
+    }
+
+    .loginRightForm {
+        gap: 14px;
+    }
+
+    .dividerText {
+        font-size: 10px;
+    }
+
+    .divider::before,
+    .divider::after {
+        max-width: 72px;
+    }
+}

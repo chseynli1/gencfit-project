@@ -49,8 +49,9 @@
       transition: transform 0.3s ease;
 
       &:hover {
-      transform: translateY(-6px);
-    }
+        transform: translateY(-6px);
+      }
+
       .icon {
         width: 72px;
         height: 54px;
@@ -83,5 +84,194 @@
     color: #1e1e1e;
     line-height: 1.4;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+
+
+
+@media (max-width: 1200px),
+(max-width: 1024px) {
+  .stepsSection {
+    padding: 0 48px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    .wrapper {
+      width: 100%;
+      max-width: 1180px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .cards {
+      gap: 24px;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .stepsSection {
+    padding: 0 24px;
+    overflow-x: hidden;
+
+    .title {
+      font-size: 28px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 32px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      width: 100%;
+      gap: 20px;
+
+      .divIcon {
+        width: 160px;
+        height: 160px;
+        border-radius: 28px;
+        margin: 0 auto;
+
+        .icon {
+          width: 64px;
+          height: 48px;
+        }
+      }
+    }
+
+    .cardText {
+      width: 100%;
+      max-width: 240px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .stepsSection {
+    padding: 0 !important;
+    overflow-x: hidden;
+
+    .wrapper {
+      width: 100%;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+
+    .title {
+      font-size: 24px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      gap: 16px;
+
+      .divIcon {
+        width: 140px;
+        height: 140px;
+        border-radius: 24px;
+
+        .icon {
+          width: 56px;
+          height: 44px;
+        }
+      }
+    }
+
+    .cardText {
+      max-width: 200px;
+      font-size: 15px;
+    }
+  }
+
+  :global(html),
+  :global(body) {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .stepsSection {
+    .cards {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      .divIcon {
+        width: 120px;
+        height: 120px;
+        border-radius: 20px;
+
+        .icon {
+          width: 50px;
+          height: 40px;
+        }
+      }
+    }
+
+    .cardText {
+      max-width: 220px;
+      font-size: 14.5px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .stepsSection {
+    .wrapper {
+      padding: 0 10px;
+    }
+
+    .title {
+      font-size: 22px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .cards {
+      gap: 12px;
+    }
+
+    .card {
+      .divIcon {
+        width: 110px;
+        height: 110px;
+        border-radius: 18px;
+
+        .icon {
+          width: 46px;
+          height: 36px;
+        }
+      }
+    }
+
+    .cardText {
+      max-width: 200px;
+      font-size: 14px;
+    }
   }
 }

@@ -55,7 +55,7 @@
                 gap: 16px;
                 padding: 15px 25px 0 25px;
 
-                .formLabel{
+                .formLabel {
                     width: 186px;
                     font-size: 16px;
                     font-weight: 500;
@@ -298,7 +298,8 @@
                                 background: none;
                             }
                         }
-                        .location{
+
+                        .location {
                             font-size: 12px;
                             font-weight: 400;
                             color: #7C828C;
@@ -534,19 +535,16 @@
         }
     }
 
-    /* Overlay */
     .modalOverlay {
         position: fixed;
         inset: 0;
         background: rgba(17, 24, 39, 0.55);
-        /* yarı şəffaf tünd fon */
         display: grid;
         place-items: center;
         z-index: 9999;
         padding: 16px;
     }
 
-    /* Card */
     .modalCard {
         width: 100%;
         max-width: 420px;
@@ -557,16 +555,13 @@
         text-align: center;
     }
 
-    /* Icon */
     .modalIcon {
         width: 52px;
         height: 52px;
         color: #16a34a;
-        /* yaşıl */
         margin: 6px auto 10px;
     }
 
-    /* Title & text */
     .modalTitle {
         margin: 0 0 6px;
         font-size: 20px;
@@ -581,7 +576,6 @@
         line-height: 1.45;
     }
 
-    /* Button */
     .modalBtn {
         display: inline-flex;
         align-items: center;
@@ -604,4 +598,658 @@
         transform: translateY(1px);
     }
 
+}
+
+
+
+
+
+@media (max-width: 1200px) {
+    .partners {
+        padding: 24px 48px 0 48px;
+        min-height: auto;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .partners .firstSection,
+    .partners .featuredPartners,
+    .partners .reviews,
+    .partners .collobration,
+    .partners .querySection {
+        width: 100%;
+        max-width: 1180px;
+        margin-inline: auto;
+    }
+
+    .partners .firstSection {
+        gap: 48px;
+    }
+
+    .partners .whyUs {
+        gap: 60px;
+
+        .whyUs__intro {
+            width: 420px;
+            height: auto;
+
+            h2 {
+                width: 100%;
+                font-size: 30px;
+            }
+
+            p {
+                width: 100%;
+                height: auto;
+                font-size: 17px;
+            }
+        }
+    }
+
+    .partners .featuredPartners .featuredPartnersCards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .partners .reviews {
+        height: auto;
+        margin: 64px 0;
+    }
+}
+
+
+@media (max-width: 1024px) {
+  .partners {
+    padding: 20px 24px 0 24px !important;
+    min-height: auto !important;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    .firstSection,
+    .featuredPartners,
+    .reviews,
+    .collobration,
+    .querySection {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      margin: 0 auto 32px auto;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .firstSection {
+      padding: 24px;
+      gap: 32px !important;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+
+      .firstSectionLeft {
+        align-items: center;
+        .textBlock .title { font-size: 30px; }
+        .textBlock .subtitle { width: 100%; max-width: 560px; font-size: 18px; }
+        .formBlock {
+          width: 100%; max-width: 420px; height: auto;
+          padding: 16px; align-items: center;
+          .formActions { width: 100%; max-width: 360px; }
+          .input, .button { width: 100%; }
+        }
+      }
+
+      .firstSectionRight .rightImg {
+        width: 100%; max-width: 560px; height: auto; object-fit: contain;
+      }
+    }
+
+    .whyUs {
+      flex-direction: column;
+      align-items: center;
+      gap: 28px !important;
+
+      .whyUs__intro {
+        width: 100% !important; height: auto !important;
+        max-width: 720px; text-align: center;
+        h2 { width: 100%; font-size: 28px; }
+        p  { width: 100%; height: auto; font-size: 17px; }
+      }
+
+      .whyUs__grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px !important;
+
+        .whyUs__item {
+          width: 100% !important; max-width: 340px; margin: 0 auto;
+          .whyUs__text, .whyUs__text4 { width: 100% !important; }
+        }
+      }
+    }
+
+    .featuredPartners {
+      padding: 20px;
+      .featuredPartnersHeader h2 { font-size: 28px; }
+      .featuredPartnersCards {
+        display: flex; flex-wrap: wrap; gap: 16px !important; justify-content: center;
+
+        .featuredPartnersCard {
+          width: calc(50% - 12px) !important;
+          min-width: 280px; height: auto;
+          .cardImg img {
+            width: calc(100% - 30px) !important;
+            height: auto; aspect-ratio: 16/9; object-fit: cover;
+            margin: 15px !important; border-radius: 8px;
+          }
+        }
+      }
+    }
+
+    .reviews {
+      margin: 40px 0 !important;
+      .reviewsContent {
+        .reviewsTitle { font-size: 28px; }
+        .reviewsSubtitle { font-size: 18px; text-align: center; }
+      }
+      .reviewsCards {
+        flex-direction: column !important; gap: 16px !important;
+        .reviewCard {
+          width: 100% !important; max-width: 760px; height: auto;
+          margin: 0 auto;
+          div .reviewComment { width: 100% !important; }
+        }
+      }
+    }
+
+    .collobration {
+      gap: 28px !important;
+      .collobrationHeader { text-align: center; h2 { font-size: 28px; } p { font-size: 18px; } }
+      .collaborationContent {
+        gap: 24px !important; flex-wrap: wrap; justify-content: center;
+        .collaborationCard {
+          width: 240px !important; height: auto; gap: 16px;
+          .collaborationImg { width: 150px; height: 150px; }
+        }
+      }
+    }
+
+    .querySection {
+      padding: 20px;
+      .query .queryContent {
+        gap: 16px;
+        .queryTitle { font-size: 28px; text-align: center; }
+        .querySubtitle { width: 100%; max-width: 760px; font-size: 18px; margin: 0 auto; }
+      }
+      .query .queryForm {
+        .queryInp, .queryBtn { width: 100% !important; max-width: 420px; }
+      }
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+  }
+
+  :global(html), :global(body) {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+    .partners {
+        padding: 20px 24px 0 24px;
+    }
+
+    .partners .firstSection {
+        height: auto;
+        padding: 24px;
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+
+        .firstSectionLeft {
+            align-items: center;
+
+            .textBlock .title {
+                font-size: 30px;
+            }
+
+            .textBlock .subtitle {
+                width: 100%;
+                max-width: 520px;
+                font-size: 18px;
+            }
+
+            .formBlock {
+                width: 100%;
+                max-width: 420px;
+                height: auto;
+                padding: 16px;
+                align-items: center;
+
+                .formLabel {
+                    width: auto;
+                    text-align: center;
+                }
+
+                .formActions {
+                    width: 100%;
+                    max-width: 360px;
+
+                    .input,
+                    .button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .firstSectionRight .rightImg {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+        }
+    }
+
+    .partners .whyUs {
+        flex-direction: column;
+        gap: 32px;
+
+        .whyUs__intro {
+            width: 100%;
+            max-width: 720px;
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        .whyUs__grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            .whyUs__item {
+                width: 100%;
+                max-width: 320px;
+                margin-inline: auto;
+
+                .whyUs__text,
+                .whyUs__text4 {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .partners .featuredPartners {
+        height: auto;
+        padding: 24px;
+
+        .featuredPartnersHeader h2 {
+            font-size: 28px;
+        }
+
+        .featuredPartnersCards {
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .featuredPartnersCard {
+                width: 46%;
+                min-width: 260px;
+                height: auto;
+
+                .cardImg img {
+                    width: calc(100% - 30px);
+                    height: auto;
+                    aspect-ratio: 16/9;
+                    margin: 15px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .partners .reviews {
+        width: 100%;
+        margin: 56px 0;
+
+        .reviewsContent {
+            gap: 16px;
+
+            .reviewsTitle {
+                font-size: 28px;
+            }
+
+            .reviewsSubtitle {
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+
+        .reviewsCards {
+            flex-direction: column;
+            gap: 16px;
+
+            .reviewCard {
+                width: 100%;
+                max-width: 720px;
+                margin-inline: auto;
+                height: auto;
+
+                div .reviewComment {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .partners .collobration {
+        width: 100%;
+        height: auto;
+        gap: 32px;
+
+        .collobrationHeader {
+            text-align: center;
+
+            h2 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .collaborationContent {
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .collaborationCard {
+                width: 220px;
+                height: auto;
+                gap: 16px;
+
+                .collaborationImg {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .partners .querySection {
+        height: auto;
+        padding: 24px;
+
+        .query .queryContent {
+            gap: 16px;
+
+            .queryTitle {
+                font-size: 28px;
+                text-align: center;
+            }
+
+            .querySubtitle {
+                width: 100%;
+                max-width: 720px;
+                font-size: 18px;
+                margin-inline: auto;
+            }
+        }
+
+        .query .queryForm {
+            gap: 10px;
+
+            .queryInp,
+            .queryBtn {
+                width: 100%;
+                max-width: 420px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .partners {
+        padding: 16px 0 0 0 !important;
+        overflow-x: hidden;
+    }
+
+    .partners>* {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .partners .firstSection {
+        border-radius: 10px;
+    }
+
+    .partners .whyUs {
+        padding-top: 32px;
+
+        .whyUs__intro h2 {
+            font-size: 24px;
+        }
+
+        .whyUs__intro p {
+            font-size: 16px;
+        }
+
+        .whyUs__grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+
+            .whyUs__item .whyUs__icon {
+                width: 56px;
+                height: 56px;
+            }
+
+            .whyUs__item .whyUs__title {
+                font-size: 16px;
+            }
+
+            .whyUs__item .whyUs__text,
+            .whyUs__item .whyUs__text4 {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .partners .featuredPartners {
+        padding: 16px;
+
+        .featuredPartnersHeader h2 {
+            font-size: 22px;
+        }
+
+        .featuredPartnersCards {
+            gap: 12px;
+
+            .featuredPartnersCard {
+                width: 100%;
+                min-width: 0;
+
+                .cardImg img {
+                    width: calc(100% - 24px);
+                    margin: 12px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+    .partners .reviews {
+        margin: 40px 0;
+
+        .reviewsContent .reviewsTitle {
+            font-size: 22px;
+        }
+
+        .reviewsContent .reviewsSubtitle {
+            font-size: 16px;
+        }
+
+        .reviewsCards .reviewCard {
+            padding: 12px;
+
+            .reviewImage {
+                width: 60px;
+                height: 60px;
+            }
+
+            div .reviewComment {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .partners .collobration {
+        gap: 20px;
+
+        .collobrationHeader {
+            gap: 12px;
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        .collaborationContent {
+            gap: 16px;
+
+            .collaborationCard {
+                width: 100%;
+                max-width: 260px;
+
+                .collaborationImg {
+                    width: 130px;
+                    height: 130px;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .partners .querySection {
+        margin-top: 48px;
+        margin-bottom: 120px;
+        border-radius: 10px;
+        padding: 16px;
+
+        .query .queryContent .queryTitle {
+            font-size: 22px;
+        }
+
+        .query .queryContent .querySubtitle {
+            font-size: 16px;
+        }
+
+        .query .queryForm .queryInp,
+        .query .queryForm .queryBtn {
+            width: 100%;
+            max-width: 360px;
+            height: 42px;
+        }
+    }
+
+    :global(html),
+    :global(body) {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .partners .firstSection .textBlock .title {
+        font-size: 20px;
+    }
+
+    .partners .firstSection .textBlock .subtitle {
+        font-size: 14.5px;
+    }
+
+    .partners .featuredPartners .featuredPartnersHeader h2 {
+        font-size: 20px;
+    }
+
+    .partners .collaborationContent .collaborationCard {
+        max-width: 220px;
+
+        .collaborationImg {
+            width: 110px;
+            height: 110px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    .partners .reviews .reviewsContent .reviewsTitle {
+        font-size: 20px;
+    }
+
+    .partners .reviews .reviewsContent .reviewsSubtitle {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .partners {
+        padding: 12px 0 0 0 !important;
+    }
+
+    .partners .firstSection {
+        padding: 16px;
+    }
+
+    .partners .firstSection .textBlock .title {
+        font-size: 19px;
+    }
+
+    .partners .firstSection .textBlock .subtitle {
+        font-size: 14px;
+    }
+
+    .partners .whyUs .whyUs__grid {
+        gap: 12px;
+    }
+
+    .partners .featuredPartners {
+        padding: 12px;
+    }
+
+    .partners .reviews {
+        margin: 32px 0;
+    }
+
+    .partners .querySection {
+        padding: 12px;
+
+        .query .queryForm .queryInp,
+        .query .queryForm .queryBtn {
+            max-width: 320px;
+            height: 40px;
+        }
+    }
 }

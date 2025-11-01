@@ -73,7 +73,7 @@
     }
 }
 
-.socialSection{
+.socialSection {
     width: 480px;
     height: 83px;
     display: flex;
@@ -132,4 +132,245 @@
     font-weight: 400;
     color: #022BD1;
     white-space: nowrap;
+}
+
+
+
+
+@media (max-width: 1280px) {
+    .register {
+        padding: 40px 48px;
+        gap: 24px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .registerRight {
+        width: 640px;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .register {
+        padding: 32px 32px;
+        gap: 20px;
+    }
+
+    .registerImg {
+        width: 420px;
+        height: auto;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .registerRight {
+        width: 560px;
+        min-height: auto;
+        padding: 16px;
+    }
+
+    .registerRightForm .registerFormInp,
+    .registerRightForm .registerFormBtn,
+    .socialSection {
+        width: 520px;
+    }
+}
+
+@media (max-width: 900px) {
+    .register {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .registerImg {
+        width: 100%;
+        max-width: 820px;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .registerRight {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .registerRightForm .registerFormInp,
+    .registerRightForm .registerFormBtn,
+    .socialSection {
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .socialAuth {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .register {
+        padding: 24px 20px;
+        gap: 16px;
+    }
+
+    .registerRight {
+        max-width: 640px;
+        padding: 16px;
+    }
+
+    .registerRightForm {
+        gap: 20px;
+    }
+
+    .registerRightForm .registerFormInp,
+    .registerRightForm .registerFormBtn,
+    .socialSection {
+        width: 100%;
+        max-width: 520px;
+    }
+
+    .registerRight .registerDivh2 {
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .register {
+        padding: 20px 12px;
+    }
+
+    .registerImg {
+        aspect-ratio: 16/10;
+        border-radius: 10px;
+    }
+
+    .registerRight {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .registerRightForm .registerFormInp,
+    .registerRightForm .registerFormBtn,
+    .socialSection {
+        max-width: 100%;
+    }
+
+    .divider {
+        padding: 0 6px;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 100%;
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register {
+        padding: 16px 0 !important;
+        overflow-x: hidden;
+    }
+
+    .registerRight {
+        margin: 0 12px;
+        padding: 12px;
+    }
+
+    .registerRightForm {
+        gap: 16px;
+    }
+
+    .registerRightForm .registerFormInp {
+        height: 42px;
+    }
+
+    .registerRightForm .registerFormBtn {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .socialSection {
+        gap: 20px;
+        height: auto;
+    }
+
+    .socialAuth {
+        gap: 12px;
+    }
+
+    .dividerText {
+        font-size: 11px;
+    }
+
+    .divider::before,
+    .divider::after {
+        max-width: 100px;
+    }
+
+    :global(html),
+    :global(body) {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .registerRight .registerDivh2 {
+        font-size: 22px;
+    }
+
+    .registerRight {
+        margin: 0 8px;
+        padding: 10px;
+    }
+
+    .registerRightForm .registerFormBtn {
+        height: 46px;
+        font-size: 14px;
+    }
+
+    .divider::before,
+    .divider::after {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 320px) {
+    .registerRight {
+        margin: 0 6px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .registerRight .registerDivh2 {
+        font-size: 20px;
+    }
+
+    .registerRightForm {
+        gap: 14px;
+    }
+
+    .dividerText {
+        font-size: 10px;
+    }
+
+    .divider::before,
+    .divider::after {
+        max-width: 72px;
+    }
 }

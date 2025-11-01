@@ -12,6 +12,7 @@ import api from "@/api"
 import { CheckCircle } from "lucide-react";
 import { uuid } from 'zod'
 import { Spin } from 'antd'
+import { useTranslation } from 'react-i18next'
 
 const Partners = () => {
 
@@ -22,7 +23,8 @@ const Partners = () => {
   const [successOpen, setSuccessOpen] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
   const [venues, setVenues] = useState([])
-
+  const [loading, setLoading] = useState(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
     api
@@ -36,15 +38,6 @@ const Partners = () => {
       .catch((err) => console.error("Gym fetch error:", err))
       .finally(() => setLoading(false))
   }, [])
-
-
-  if (leadLoading) {
-    return (
-      <div className={styles.loaderWrapper}>
-        <Spin size="large" tip={t("loading")} />
-      </div>
-    );
-  }
 
 
 
@@ -130,6 +123,11 @@ const Partners = () => {
 
   return (
     <div className={styles.partners}>
+      {leadLoading && (
+        <div className={styles.loaderWrapper}>
+          <Spin size="large" tip={t("loading")} />
+        </div>
+      )}
       <section className={styles.firstSection}>
         <div className={styles.firstSectionLeft}>
           <div className={styles.textBlock}>
@@ -222,20 +220,20 @@ const Partners = () => {
           {
             venues.map((venues) => {
               return (
-                <div className={styles.featuredPartnersCard}>
-                <div className={styles.cardImg}>
-                  <img src={venues.image} />
-                </div>
-                <div className={styles.cardContent}>
-                  <h3 className={styles.title}>{venues.name}</h3>
-                  <div className={styles.subTitle}>
-                    <div className={styles.venuesRating}>
-                      <span className={styles.rating}>★ {venues.rating}</span>
-                      <span className={venues.description}>{venues.description}</span>
-                    </div>
-                    <p className={styles.location}>{venues.location}</p>
+                <div key={venues.id} className={styles.featuredPartnersCard}>
+                  <div className={styles.cardImg}>
+                    <img src={venues.image} />
                   </div>
-                </div>
+                  <div className={styles.cardContent}>
+                    <h3 className={styles.title}>{venues.name}</h3>
+                    <div className={styles.subTitle}>
+                      <div className={styles.venuesRating}>
+                        <span className={styles.rating}>★ {venues.rating}</span>
+                        <span className={venues.description}>{venues.description}</span>
+                      </div>
+                      <p className={styles.location}>{venues.location}</p>
+                    </div>
+                  </div>
                 </div>
               )
             })
@@ -248,7 +246,7 @@ const Partners = () => {
       <section className={styles.reviews}>
         <div className={styles.reviewsContent}>
           <h2 className={styles.reviewsTitle}>Məmnun istifadəçilər, davamlı İnkişaf</h2>
-          <p className={styles.reviewsSubtitle}>Gəncfit platformasının geniş və fəal istifadəçi kütləsi biznesinizin <p>inkişafı üçün ideal mühit yaradır. Sizi bu uğur yoluna dəvət edirik.</p></p>
+          <p className={styles.reviewsSubtitle}>Gəncfit platformasının geniş və fəal istifadəçi kütləsi biznesinizin <br />inkişafı üçün ideal mühit yaradır. Sizi bu uğur yoluna dəvət edirik.</p>
         </div>
         <div className={styles.reviewsCards}>
           {reviews.length > 0 ? (
@@ -319,11 +317,7 @@ const Partners = () => {
             <input className={styles.queryInp} type="tel"
               placeholder="+994"
               value={leadPhone}
-              onChange={(e) => {
-                // yalnız rəqəmləri qəbul et
-                const v = e.target.value.replace(/\D/g, "");
-                setLeadPhone(v);
-              }} />
+              onChange={(e) => setLeadPhone(e.target.value.replace(/\D/g, ""))} />
             <button className={styles.queryBtn}
               onClick={sendPartnerInquiry}
               disabled={leadLoading}

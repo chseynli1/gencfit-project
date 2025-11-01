@@ -134,3 +134,311 @@
     }
   }
 }
+
+
+
+@media (max-width: 1200px),
+(max-width: 1024px) {
+  .experienceSection {
+    padding: 56px 0;
+    overflow-x: hidden;
+
+    .container {
+      max-width: 100%;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    .title {
+      font-size: 30px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+    }
+
+    .cardGrid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding: 0 16px 8px 16px;
+      box-sizing: border-box;
+      justify-content: flex-start;
+      align-items: stretch;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .card {
+      flex: 0 0 auto;
+      /* kart yan-yana düzülür */
+      width: 240px;
+      /* sabit eni */
+      min-width: 240px;
+      /* hər biri tam görünsün */
+      max-width: 240px;
+      scroll-snap-align: start;
+      border-radius: 16px;
+      background: #446DFF;
+      color: white;
+      padding: 16px;
+      box-sizing: border-box;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+
+    /* scrollbar dizayn */
+    .cardGrid::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .cardGrid::-webkit-scrollbar-thumb {
+      background: rgba(68, 109, 255, 0.6);
+      border-radius: 4px;
+    }
+
+    .cardGrid::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 18px;
+
+      .cardImage {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .experienceSection {
+    .container {
+      padding: 0 20px;
+    }
+
+    .title {
+      font-size: 28px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 36px;
+    }
+
+    .cardGrid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      max-width:200px;
+      padding: 16px;
+      border-radius: 16px;
+
+      .cardImage {
+        aspect-ratio: 4/3;
+        border-radius: 10px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+
+      .cardText {
+        padding-top: 12px;
+
+        h4 {
+          font-size: 14.5px;
+        }
+
+        .cardFooter .cardSpan {
+          font-size: 13.5px;
+        }
+
+        .cardFooter .arrowBtn {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    }
+
+    .moreBtn {
+      margin-top: 32px;
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .experienceSection {
+    padding: 40px 0;
+    overflow-x: hidden;
+
+    .container {
+      padding: 0 12px;
+    }
+
+    .title {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cardGrid {
+      gap: 12px;
+      padding: 0 12px 8px 12px;
+    }
+
+    .card {
+      width: 200px;
+      min-width: 200px;
+      max-width: 200px;
+      padding: 14px;
+      border-radius: 14px;
+
+      .cardImage {
+        aspect-ratio: 4/3;
+        border-radius: 10px;
+      }
+
+      .cardText {
+        h4 {
+          font-size: 14px;
+        }
+
+        .cardFooter .cardSpan {
+          font-size: 13px;
+        }
+
+        .cardFooter .arrowBtn {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    .moreBtn {
+      font-size: 14px;
+    }
+
+    :global(html),
+    :global(body) {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .experienceSection {
+    .container {
+      padding: 0 10px;
+    }
+
+    .cardGrid {
+      gap: 10px;
+      padding: 0 10px;
+    }
+
+    .card {
+      width: 180px;
+      min-width: 180px;
+      max-width: 180px;
+      padding: 12px;
+
+      .cardImage {
+        aspect-ratio: 4/3;
+        border-radius: 8px;
+      }
+
+      .cardText {
+        h4 {
+          font-size: 13.5px;
+        }
+
+        .cardFooter .cardSpan {
+          font-size: 12.5px;
+        }
+
+        .cardFooter .arrowBtn {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .experienceSection {
+    padding: 32px 0;
+    overflow-x: hidden;
+
+    .container {
+      padding: 0 8px;
+    }
+
+    .title {
+      font-size: 22px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .cardGrid {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 8px;
+    }
+
+    .card {
+      width: 170px;
+      min-width: 170px;
+      max-width: 170px;
+      padding: 10px;
+      border-radius: 10px;
+
+      .cardImage {
+        border-radius: 8px;
+      }
+
+      .cardText {
+        h4 {
+          font-size: 13px;
+        }
+
+        .cardFooter .cardSpan {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  :global(html),
+  :global(body) {
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

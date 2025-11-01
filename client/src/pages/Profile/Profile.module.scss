@@ -31,7 +31,12 @@
     }
 
     .profileContent {
-      width: 1183px fit-content;
+      /* width: 1183px fit-content;  -> invalid ifadədir, brauzer ignore edir */
+      /* Dizaynı pozmamaq üçün maksimum eni limitləyib, özünü 100% saxlayırıq */
+      max-width: 1183px;
+      /* CHANGED: invalid 'width' düzəldildi */
+      width: 100%;
+      /* CHANGED: konteyner overflow etməsin */
       height: 228px;
       background-color: white;
       border-radius: 10px;
@@ -39,6 +44,12 @@
       gap: 60px;
       align-items: center;
       padding-left: 15px;
+
+      /* Üst-üstə düşməni bloklayan təhlükəsiz baza düzəlişləri */
+      flex-wrap: nowrap;
+      /* desktop-da yan-yana qalsın; mobilə keçəndə wrap verəcəyik */
+      min-width: 0;
+      /* CHANGED: flex overflow fix */
 
       .profileImageWrap {
         position: relative;
@@ -86,10 +97,20 @@
         flex-direction: column;
         gap: 26px;
 
+        /* CHANGED: mətni/ikonları sıxanda üst-üstə düşməsin */
+        min-width: 0;
+        overflow: hidden;
+
         .userName {
           font-size: 20px;
           font-weight: 500;
           color: #2b2c30;
+          white-space: nowrap;
+          /* CHANGED */
+          text-overflow: ellipsis;
+          /* CHANGED */
+          overflow: hidden;
+          /* CHANGED */
         }
 
         div {
@@ -100,6 +121,22 @@
             color: #2b2c30;
             display: flex;
             gap: 10px;
+            align-items: flex-start;
+            /* CHANGED: ikon-ların mətni basmaması */
+            flex-wrap: wrap;
+            /* CHANGED: sətir bükülsün */
+            line-height: 1.25;
+            /* CHANGED */
+            overflow-wrap: anywhere;
+            /* CHANGED */
+          }
+
+          p img {
+            width: 18px;
+            height: 18px;
+            /* CHANGED: sabit ikon ölçüsü */
+            flex-shrink: 0;
+            margin-top: 2px;
           }
         }
 
@@ -187,7 +224,11 @@
     }
 
     .formContainer {
-      width: 1183px fit-content;
+      /* width: 1183px fit-content; -> invalid; masaüstü üçün limit + 100% */
+      max-width: 1183px;
+      /* CHANGED */
+      width: 100%;
+      /* CHANGED */
       height: 288px;
       border-radius: 10px;
       display: flex;
@@ -196,6 +237,8 @@
       background-color: white;
       justify-content: center;
       padding-left: 20px;
+      padding-right: 20px;
+      /* CHANGED: sağ boşluq */
 
       .formRow {
         display: grid;
@@ -209,6 +252,8 @@
           flex-direction: column;
           background: none;
           gap: 5px;
+          min-width: 0;
+          /* CHANGED */
 
           label {
             font-size: 14px;
@@ -220,15 +265,27 @@
           .inputWrapper {
             position: relative;
             background: none;
-            width: 280px;
+            width: 100%;
+            /* CHANGED: 280px sabiti əvəzinə parent-ə uyğun */
 
             input {
-              width: 280px;
+              width: 100%;
+              /* CHANGED */
               height: 40px;
               border-radius: 5px;
               border: 1px solid #b2bce7;
               padding-left: 10px;
+              padding-right: 36px;
+              /* CHANGED: sağda ikon üçün boşluq */
               background: none;
+              line-height: 1.2;
+              /* CHANGED */
+              overflow: hidden;
+              /* CHANGED */
+              text-overflow: ellipsis;
+              /* CHANGED */
+              white-space: nowrap;
+              /* CHANGED */
             }
 
             .icon {
@@ -258,9 +315,12 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 1183px fit-content;
+    /* width: 1183px fit-content; -> invalid */
+    max-width: 1183px;
+    /* CHANGED */
+    width: 100%;
+    /* CHANGED */
     min-height: 252px;
-
 
     .sectionHeader {
       display: flex;
@@ -281,16 +341,19 @@
       }
     }
 
-
     .appointmentsCards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       max-width: 1183px;
+      width: 100%;
+      /* CHANGED */
     }
 
     .appointmentsCard {
-      width: 580px;
+      /* width: 580px; -> sabit en overflow yaradır */
+      width: 100%;
+      /* CHANGED: grid column-a uyğun */
       height: 116px;
       background-color: white;
       border: 1px solid #B2BCE7;
@@ -303,11 +366,23 @@
       .cardHeader {
         font-size: 18px;
         font-weight: 500;
+        overflow: hidden;
+        /* CHANGED */
+        white-space: nowrap;
+        /* CHANGED */
+        text-overflow: ellipsis;
+        /* CHANGED */
       }
 
       h3,
       span {
         background: none;
+        overflow: hidden;
+        /* CHANGED */
+        white-space: nowrap;
+        /* CHANGED */
+        text-overflow: ellipsis;
+        /* CHANGED */
       }
     }
   }
@@ -384,7 +459,6 @@
     cursor: pointer;
     background: none;
   }
-
 
   .appointmentsActions {
     display: flex;
@@ -488,7 +562,6 @@
     }
   }
 
-  /* Existing modals should already have these; keep for safety */
   .modalOverlay {
     position: fixed;
     inset: 0;
@@ -518,7 +591,6 @@
     font-size: 12px;
   }
 
-
   .reviews {
     .sectionHeader {
       display: flex;
@@ -540,8 +612,6 @@
     }
   }
 
-
-  /* Reviews section */
   .reviewsSection {
     margin-top: 24px;
   }
@@ -573,6 +643,12 @@
     font-size: 16px;
     font-weight: 700;
     color: #111827;
+    overflow: hidden;
+    /* CHANGED */
+    white-space: nowrap;
+    /* CHANGED */
+    text-overflow: ellipsis;
+    /* CHANGED */
   }
 
   .reviewBody {
@@ -595,9 +671,14 @@
 
   .reviewValue {
     color: #1f2937;
+    overflow: hidden;
+    /* CHANGED */
+    white-space: nowrap;
+    /* CHANGED */
+    text-overflow: ellipsis;
+    /* CHANGED */
   }
 
-  /* Stars */
   .stars {
     display: inline-flex;
     gap: 2px;
@@ -614,7 +695,6 @@
 
   .starFilled {
     fill: #fbbf24;
-    /* amber-400 */
     stroke: #fbbf24;
   }
 
@@ -623,7 +703,6 @@
     border-top: 1px solid #f1f3f6;
     display: flex;
     justify-content: flex-end;
-    /* sağ alt */
   }
 
   .repeatBtn {
@@ -640,5 +719,180 @@
   .repeatBtn:hover {
     background: #e9eaee;
   }
+}
 
+/* ===================== */
+/*  RESPONSIVE OVERRIDES */
+/*  (the same file)      */
+/* ===================== */
+
+/* 1200↓: bir az sıxlaşdırmalar */
+@media (max-width: 1200px) {
+  .profilePage {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+
+  .profilePage .myProfile .profileContent {
+    gap: 24px;
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    /* CHANGED: sığmayanda aşağı düşsün */
+    height: auto;
+    /* CHANGED: sabit 228px hündürlükdən çıx */
+  }
+
+  .profilePage .personal .formContainer {
+    padding: 16px 20px;
+    height: auto;
+    /* CHANGED */
+  }
+
+  .profilePage .appointments {
+    width: 100%;
+  }
+}
+
+/* 992↓: form 3 sütundan 2 sütuna */
+@media (max-width: 992px) {
+  .profilePage .personal .formContainer .formRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .profilePage .appointments .appointmentsCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* 768↓: hər şey 1 sütun, inputlar alt-alta */
+@media (max-width: 768px) {
+
+  /* Başlıqlardakı xətt daşmasın */
+  .profilePage .myProfile .profileTitle,
+  .profilePage .personal .personalTitle,
+  .profilePage .appointments .sectionHeader,
+  .profilePage .reviews .sectionHeader {
+    gap: 10px;
+  }
+
+  .profilePage .myProfile .profileTitle .line,
+  .profilePage .personal .personalTitle .line,
+  .profilePage .appointments .sectionHeader .line,
+  .profilePage .reviews .sectionHeader .line {
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+
+  /* Profil kontenti */
+  .profilePage .myProfile .profileContent {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    /* CHANGED */
+  }
+
+  /* Profil şəkli — dairə və kiçik ölçü */
+  .profilePage .myProfile .profileContent .profileImageWrap {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Məlumat bloku daşa bilməsin */
+  .profilePage .myProfile .profileContent .profileInfo {
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    /* CHANGED */
+  }
+
+  /* Form: 1 sütun, inputlar tam en */
+  .profilePage .personal .formContainer .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .profilePage .personal .formContainer .formRow .field .inputWrapper,
+  .profilePage .personal .formContainer .formRow .field .inputWrapper input {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    /* ehtiyac olsa sətir-sətir */
+  }
+
+  /* “Tamamla” düyməsi tam en */
+  .profilePage .personal .formContainer .saveBtn {
+    width: 100%;
+  }
+
+  /* Randevu kartları 1 sütun */
+  .profilePage .appointments .appointmentsCards {
+    grid-template-columns: 1fr;
+  }
+
+  .profilePage .appointments .appointmentsCard {
+    width: 100%;
+    height: auto;
+    /* CHANGED: sabit 116px söndü */
+  }
+
+  /* Modal ölçüləri */
+  .profilePage .modal {
+    width: min(520px, 95vw);
+    padding: 16px;
+  }
+
+  .profilePage .modal input,
+  .profilePage .modal select {
+    width: 100%;
+  }
+
+  /* Keçmiş randevu drawer */
+  .profilePage .sideModal {
+    width: min(420px, 92vw);
+  }
+
+  /* Əlavə et / Keçmiş randevular düymələri yan-yana sığmasa alt-alta */
+  .profilePage .addAppointmentBtn,
+  .profilePage .pastBtn {
+    width: 100%;
+  }
+}
+
+/* 600↓: xırda sıxlaşdırmalar */
+@media (max-width: 600px) {
+  .profilePage .myProfile .profileContent .profileImageWrap {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+/* 480↓: ən kiçik ekran düzəni */
+@media (max-width: 480px) {
+  .profilePage {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 16px;
+  }
+
+  /* Başlıqlarda xətti gizlət – sıx ekranda daha səliqəli görünür */
+  .profilePage .myProfile .profileTitle .line,
+  .profilePage .personal .personalTitle .line,
+  .profilePage .appointments .sectionHeader .line,
+  .profilePage .reviews .sectionHeader .line {
+    display: none;
+  }
+
+  /* Profil məlumatlarının font ölçüləri */
+  .profilePage .myProfile .profileContent .profileInfo .userName {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  /* Review kartı düyməsi tam en */
+  .profilePage .repeatBtn {
+    width: 100%;
+  }
 }

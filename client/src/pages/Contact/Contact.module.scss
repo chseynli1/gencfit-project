@@ -125,7 +125,7 @@
         gap: 50px;
         padding-bottom: 160px;
 
-         .map {
+        .map {
             display: flex;
             align-items: center;
             gap: 20px;
@@ -182,5 +182,242 @@
                 }
             }
         }
+    }
+}
+
+
+
+@media (max-width: 1280px) {
+    .contactSections {
+        padding: 24px 48px 0 48px;
+        gap: 40px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .contactSections .contact,
+    .contactSections .social,
+    .contactSections .map {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .line {
+            flex: 1 1 auto !important;
+            width: auto !important;
+            min-width: 0;
+            height: 1px;
+            background-color: #95A6EC;
+            border-radius: 10px;
+        }
+    }
+
+    .contactSections .contactSection .contactInfo {
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contactSections {
+        padding: 20px 32px 0 32px;
+        gap: 36px;
+    }
+
+    .contactSections .contact .contactHeader,
+    .contactSections .social .socialHeader,
+    .contactSections .map .mapHeader {
+        font-size: 28px;
+    }
+
+    .contactSections .contactSection .contactInfo {
+        gap: 24px;
+        flex-wrap: wrap;
+
+        .contactCard {
+            width: calc(33.333% - 16px);
+            min-width: 240px;
+            height: auto;
+            padding: 16px 12px;
+            box-sizing: border-box;
+
+            .contactDetails {
+                text-align: center;
+
+                h4 {
+                    margin: 10px 0 6px;
+                }
+
+                span,
+                p {
+                    word-wrap: break-word;
+                    overflow-wrap: anywhere;
+                }
+            }
+        }
+    }
+
+    .contactSections .socialSection .socialLinks {
+        width: 100% !important;
+        height: auto;
+        flex-wrap: wrap;
+        row-gap: 16px;
+        column-gap: 32px;
+    }
+
+    .contactSections .mapSection .mapWrapper {
+        gap: 16px;
+        align-items: flex-start;
+
+        .iframe {
+            width: 100% !important;
+            max-width: 680px;
+            height: auto !important;
+            aspect-ratio: 4 / 3;
+            border-radius: 10px !important;
+        }
+
+        .mapAddress {
+            width: auto;
+            min-width: 260px;
+            height: auto;
+            align-items: flex-start;
+
+            .mapSubtitle {
+                width: auto;
+
+                p {
+                    padding-top: 0;
+                    margin: 0;
+                    line-height: 1.45;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .contactSections {
+        padding: 20px 24px 0 24px;
+        gap: 28px;
+    }
+
+    .contactSections .contactSection .contactInfo {
+        gap: 16px;
+
+        .contactCard {
+            width: calc(50% - 10px);
+            min-width: 220px;
+            padding: 14px 10px;
+        }
+    }
+
+    .contactSections .socialSection .socialLinks {
+        gap: 16px;
+    }
+
+    .contactSections .mapSection .mapWrapper {
+        flex-direction: column;
+        gap: 12px;
+
+        .iframe {
+            width: 100% !important;
+            max-width: 100%;
+            aspect-ratio: 3 / 2;
+        }
+
+        .mapAddress {
+            gap: 12px;
+            justify-content: flex-start;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .contactSections {
+        padding: 16px 0 0 0 !important;
+        gap: 24px;
+        overflow-x: hidden;
+    }
+
+    .contactSections .contactSection,
+    .contactSections .socialSection,
+    .contactSections .mapSection {
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .contactSections .contact .contactHeader,
+    .contactSections .social .socialHeader,
+    .contactSections .map .mapHeader {
+        font-size: 22px;
+    }
+
+    .contactSections .contactSection .contactInfo {
+        gap: 12px;
+
+        .contactCard {
+            width: 100%;
+            min-width: 0;
+            padding: 12px;
+            border-radius: 10px;
+
+            .contactIcon {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    }
+
+    .contactSections .socialSection .socialLinks {
+        gap: 12px;
+
+        a {
+            word-break: break-all;
+        }
+    }
+
+    .contactSections .mapSection .mapWrapper .iframe {
+        aspect-ratio: 16 / 10;
+    }
+
+    :global(html),
+    :global(body) {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .contactSections .contact .contactHeader,
+    .contactSections .social .socialHeader,
+    .contactSections .map .mapHeader {
+        font-size: 20px;
+    }
+
+    .contactSections .contactSection,
+    .contactSections .socialSection,
+    .contactSections .mapSection {
+        padding: 0 10px;
+    }
+
+    .contactSections .mapSection .mapWrapper .iframe {
+        aspect-ratio: 16 / 11;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .contactSections .contactSection,
+    .contactSections .socialSection,
+    .contactSections .mapSection {
+        padding: 0 8px;
+    }
+
+    .contactSections .contactSection .contactInfo .contactCard .contactIcon {
+        width: 72px;
+        height: 72px;
     }
 }

@@ -60,3 +60,140 @@
         }
     }
 }
+
+
+@media (max-width: 1024px) {
+  .slider {
+    padding: 20px 48px 0 48px;
+  }
+
+  .sliderWrapper {
+    height: 420px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .sliderContent {
+    width: 100%;
+    max-width: 620px;
+    padding: 20px;
+    h1 { font-size: 32px; }
+    p  { font-size: 18px; width: 100%; }
+    button { width: 180px; height: 36px; font-size: 15px; }
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    padding: 16px 24px 0 24px;
+  }
+
+  .sliderWrapper {
+    height: auto;
+    min-height: 360px;
+  }
+
+  .sliderContent {
+    max-width: 100%;
+    padding: 20px;
+    h1 { font-size: 28px; line-height: 1.2; }
+    p  { font-size: 16px; }
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    padding: 0 !important;
+    overflow-x: hidden;
+  }
+
+  .sliderWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;
+    min-height: 300px;
+    border-radius: 0; 
+    background-position: center;
+    background-size: cover;
+  }
+
+  .sliderContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px;
+    box-sizing: border-box;
+    h1 {
+      font-size: 24px;
+      line-height: 1.2;
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 16px;
+    }
+    button {
+      width: 160px;
+      height: 34px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .slider {
+    padding: 0 !important;
+    overflow-x: hidden;
+  }
+
+  .sliderWrapper {
+    min-height: 260px;
+  }
+
+  .sliderContent {
+    padding: 14px;
+    h1 { font-size: 21px; }
+    p  { font-size: 14px; }
+  }
+}
+
+@media (max-width: 320px) {
+  .slider {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden;
+  }
+
+  .sliderWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 240px;
+    border-radius: 0;
+  }
+
+  .sliderContent {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px;
+    h1 { font-size: 19px; }
+    p  { font-size: 13.5px; }
+    button {
+      width: 150px;
+      height: 32px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  :global(html),
+  :global(body) {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden !important;
+  }
+}

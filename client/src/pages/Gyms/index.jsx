@@ -9,6 +9,9 @@ const Gyms = () => {
 
   const [gyms, setGyms] = useState([])
   const [loading, setLoading] = useState(true)
+  const [filteredGyms, setFilteredGyms] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("");
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -24,6 +27,18 @@ const Gyms = () => {
       .finally(() => setLoading(false))
   }, [])
 
+
+  useEffect(() => {
+    const filtered = gyms.filter((gym) => {
+      const matchesSearch =
+        gym.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        gym.description?.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = category ? gym.category === category : true;
+      return matchesSearch && matchesCategory;
+    });
+    setFilteredGyms(filtered);
+  }, [searchTerm, category, gyms]);
+
   if (loading) {
     return (
       <div className={styles.loaderWrapper}>
@@ -37,50 +52,55 @@ const Gyms = () => {
 
       <div className={styles.gyms}>
         <div className={styles.searchBox}>
-          <input type="text" placeholder="Search" />
-          <select className={styles.select}>
-            <option>9 Kateqoriya</option>
-            <option>Fitness</option>
-            <option>Rəqs</option>
-            <option>Pilates</option>
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} />
+          <select
+            className={styles.select}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}>
+            <option value="">9 Kateqoriya</option>
+            <option value="Fitness">Fitness</option>
+            <option value="Rəqs">Rəqs</option>
+            <option value="Pilates">Pilates</option>
           </select>
         </div>
 
         <div className={styles.cards}>
-          {
-            gyms.map((gym) => {
-              return (
-                <div className={styles.card}>
-                  <div className={styles.cardContent}>
-                    <div className="">
-                      <h3 className={styles.name}>
-                        {gym.name.length > 18 ? gym.name.slice(0, 19) + "..." : gym.name}
-                      </h3>
-                      <span className={styles.description}>{gym.description}</span>
-                    </div>
-                    <div className={styles.gymRating}>
-                      <img className="" src={starIcon} />
-                      <span className="">{gym.rating}</span>
-                    </div>
-                    <div className={styles.locationGyms}>
-                      <img className="" src={locationIcon2} />
-                      <span className="">
-                        {gym.location.length > 13 ? gym.location.slice(0, 12) + "..." : gym.location}
-                      </span>
-                    </div>
+          {filteredGyms.length > 0 ? (
+            filteredGyms.map((gym) => (
+              <div key={gym._id} className={styles.card}>
+                <div className={styles.cardContent}>
+                  <div>
+                    <h3 className={styles.name}>
+                      {gym.name.length > 18 ? gym.name.slice(0, 19) + "..." : gym.name}
+                    </h3>
+                    <span className={styles.description}>{gym.description}</span>
                   </div>
-
-                  <img
-                    src={gym.image || "https://via.placeholder.com/150"}
-                    alt={gym.name}
-                    className={styles.cardImage}
-                  />
+                  <div className={styles.gymRating}>
+                    <img src={starIcon} alt="rating" />
+                    <span>{gym.rating || 0}</span>
+                  </div>
+                  <div className={styles.locationGyms}>
+                    <img src={locationIcon2} alt="location" />
+                    <span>
+                      {gym.location.length > 13 ? gym.location.slice(0, 12) + "..." : gym.location}
+                    </span>
+                  </div>
                 </div>
-              )
-            })
-          }
 
-
+                <img
+                  src={gym.image || "https://via.placeholder.com/150"}
+                  alt={gym.name}
+                  className={styles.cardImage}
+                />
+              </div>
+            ))
+          ) : (
+            <p className={styles.noResults}>Uyğun nəticə tapılmadı.</p>
+          )}
         </div>
       </div>
 

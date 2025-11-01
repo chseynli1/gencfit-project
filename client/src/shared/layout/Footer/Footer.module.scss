@@ -113,3 +113,209 @@
     letter-spacing: 0.5px;
   }
 }
+
+
+
+/* ================= TABLET (≤1024px) ================= */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 50px 0;
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      height: auto;
+      margin: 60px auto;
+      width: 90%;
+    }
+  }
+
+  .footerLeft {
+    display: flex;
+    justify-content: center;
+
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+  }
+
+  .footerRight {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .contactSection {
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+
+    .address {
+      font-size: 20px;
+      line-height: 1.4;
+      max-width: 300px;
+    }
+
+    .contactInfo {
+      align-items: center;
+      gap: 6px;
+
+      .phone,
+      .email {
+        font-size: 14px;
+        border-bottom: none;
+      }
+    }
+  }
+
+  .navigationLinks {
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+
+    .footerLinks {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .footerBottom {
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+/* ================= MOBİL (≤480px) ================= */
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 0;
+
+    .container {
+      width: 95%;
+      gap: 30px;
+      margin: 40px auto;
+    }
+  }
+
+  .footerLeft .logo {
+    width: 90px;
+  }
+
+  .footerRight {
+    gap: 30px;
+  }
+
+  .contactSection {
+    gap: 25px;
+
+    .address {
+      font-size: 18px;
+    }
+
+    .contactInfo .phone,
+    .contactInfo .email {
+      font-size: 13px;
+    }
+  }
+
+  .navigationLinks {
+    gap: 30px;
+
+    .footerLinks {
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+
+      .list {
+        width: auto;
+        align-items: center;
+        gap: 12px;
+
+        .listItem {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .footerBottom {
+      font-size: 12px;
+      color: #d8d9df;
+    }
+  }
+}
+
+/* ================= ÇOX KİÇİK (≤360px) ================= */
+@media (max-width: 360px) {
+  .footer {
+    padding: 30px 0;
+
+    .container {
+      gap: 25px;
+      margin: 30px auto;
+    }
+  }
+
+  .footerLeft .logo {
+    width: 80px;
+  }
+
+  .contactSection .address {
+    font-size: 16px;
+  }
+
+  .navigationLinks .footerLinks .list .listItem {
+    font-size: 13px;
+  }
+
+  .footerBottom {
+    font-size: 11.5px;
+  }
+}
+
+/* ================= 320px ================= */
+@media (max-width: 320px) {
+  .footer {
+    padding: 24px 0;
+
+    .container {
+      width: 100%;
+      padding: 0 10px;
+      gap: 20px;
+      margin: 24px auto;
+    }
+  }
+
+  .footerLeft .logo {
+    width: 70px;
+  }
+
+  .contactSection {
+    .address {
+      font-size: 15px;
+    }
+
+    .contactInfo .phone,
+    .contactInfo .email {
+      font-size: 12.5px;
+    }
+  }
+
+  .navigationLinks {
+    gap: 24px;
+
+    .footerLinks .list {
+      gap: 10px;
+
+      .listItem {
+        font-size: 12.5px;
+      }
+    }
+
+    .footerBottom {
+      font-size: 11px;
+    }
+  }
+}
