@@ -4,11 +4,13 @@ import styles from "./Detail.module.scss";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import api from "@/api";
 import { ArrowLeft, MapPin, Star, Phone, Mail } from "lucide-react";
+import { Spin } from "antd";
+import { useTranslation } from "react-i18next";
 
 const endpointByType = {
-  venue:   (id) => `/venues/${id}`,
+  venue: (id) => `/venues/${id}`,
   partner: (id) => `/partners/${id}`,
-  blog:    (id) => `/blogs/${id}`,
+  blog: (id) => `/blogs/${id}`,
 };
 
 // Query fallback helper (Variant B üçün)
@@ -30,11 +32,13 @@ const Detail = () => {
   const q = useQueryParamsFallback();
 
   const type = (typeParam || q.type || "").toLowerCase(); // 'venue' | 'partner' | 'blog'
-  const id   = idParam || q.id || "";
+  const id = idParam || q.id || "";
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState("");
+
+   const { t } = useTranslation();
 
   useEffect(() => {
     if (!type || !id) {
@@ -72,7 +76,14 @@ const Detail = () => {
     return `https://www.google.com/maps?q=${q}&output=embed`;
   }, [data]);
 
-  if (loading) return <div className={styles.wrap}>Yüklənir…</div>;
+  if (loading) {
+    return (
+      <div className={styles.center}>
+        <Spin size="large" tip={t("loading")} />
+      </div>
+    );
+  }
+
   if (err) return (
     <div className={styles.wrap}>
       <p className={styles.error}>{err}</p>
@@ -114,7 +125,7 @@ const Detail = () => {
           {/* Rating badge */}
           {rating !== null && (
             <div className={styles.ratingBadge}>
-              <Star style={{background:"none"}} size={14} />
+              <Star style={{ background: "none" }} size={14} />
               <span>{rating}</span>
             </div>
           )}
@@ -124,7 +135,7 @@ const Detail = () => {
             {data.venue_type && (
               <span className={styles.chip}>
                 {data.venue_type === "sports" ? "İdman" :
-                 data.venue_type === "entertainment" ? "Əyləncə" : data.venue_type}
+                  data.venue_type === "entertainment" ? "Əyləncə" : data.venue_type}
               </span>
             )}
             {typeof data.capacity === "number" && (
@@ -137,12 +148,12 @@ const Detail = () => {
             <div className={styles.contacts}>
               {data.contact_phone && (
                 <a className={styles.contactBtn} href={`tel:${data.contact_phone}`}>
-                  <Phone style={{background:"none"}} size={16} /> {data.contact_phone}
+                  <Phone style={{ background: "none" }} size={16} /> {data.contact_phone}
                 </a>
               )}
               {data.contact_email && (
                 <a className={styles.contactBtn} href={`mailto:${data.contact_email}`}>
-                  <Mail style={{background:"none"}} size={16} /> {data.contact_email}
+                  <Mail style={{ background: "none" }} size={16} /> {data.contact_email}
                 </a>
               )}
             </div>

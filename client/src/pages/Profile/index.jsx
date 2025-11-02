@@ -5,6 +5,11 @@ import { Pencil, X } from "lucide-react";
 import phoneVector from "@/assets/images/phoneVector.png";
 import locationVector from "@/assets/images/locationVector.png";
 import cameraIcon from "@/assets/images/camera.png"
+import { useTranslation } from "react-i18next";
+import { Spin } from "antd";
+
+
+
 
 const Profile = () => {
   const [user, setUser] = useState(() => {
@@ -40,6 +45,8 @@ const Profile = () => {
   const fileInputRef = useRef(null);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
+
+  const { t } = useTranslation();
 
 
   const token = useMemo(() => localStorage.getItem("token"), []);
@@ -466,7 +473,14 @@ const Profile = () => {
 
 
 
-  if (loading && !user?.image) return <p>Loading...</p>;
+  if (loading) {
+    return (
+      <div className={styles.center}>
+        <Spin size="large" tip={t("loading")} />
+      </div>
+    );
+  }
+
   const [firstName = "", lastName = ""] = (user?.full_name || "").split(" ");
 
   return (

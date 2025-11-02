@@ -13,6 +13,7 @@ import Register from './Register'
 import Login from './Login'
 import GoogleLoginCallback from '@/shared/components/GoogleLoginCallback/GoogleLoginCallback'
 import Profile from './Profile'
+import VenuesList from './VenuesList'
 
 const Router = ({ searchResults }) => {
     return (
@@ -29,6 +30,7 @@ const Router = ({ searchResults }) => {
             <Route path={Urls.LOGIN} element={<Login />} />
             <Route path="/google/callback" element={<GoogleLoginCallback />} />
             <Route path={Urls.PROFILE} element={<Profile />} />
+            <Route path={Urls.VENUES_LIST} element={<VenuesList />} />
         </Routes>
     )
 }

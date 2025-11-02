@@ -4,10 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './Header.module.scss';
 import { useTranslation } from 'react-i18next';
 import logo from "../../../assets/images/gencfit.png";
+import fond_logo2 from "../../../assets/images/fond_logo2.png";
 import GlobeIcon from '@/assets/images/LanguageSelector.svg';
 import { FiSearch } from 'react-icons/fi';
 import { useSearch } from '@/context/SearchContext';
 import { LogOut } from 'lucide-react';
+import { toCanonicalCategory } from "@/shared/utils/categories";
 
 const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8001";
 const resolveImg = (src) => (src ? (src.startsWith('http') ? src : `${API_BASE}${src}`) : null);
@@ -53,9 +55,9 @@ const Header = ({ onSearchResults }) => {
       const filtered = categories.filter((item) =>
         item.name.toLowerCase().includes(searchText.toLowerCase())
       );
-      onSearchResults(filtered);
+      onSearchResults?.(filtered);
     } else {
-      onSearchResults([]);
+      onSearchResults?.([]);
     }
   }, [searchText]);
 
@@ -72,14 +74,19 @@ const Header = ({ onSearchResults }) => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (searchText.trim()) {
-      const filtered = categories.filter((item) =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
-      );
-      setResults(filtered);
+    const term = searchText.trim();
+    if (!term) return;
+
+    // Canonical tapırıq (Yoqa və meditasiya → Yoga, Rəqs kursları → Rəqs və s.)
+    const canonical = toCanonicalCategory(term);
+    if (canonical) {
+      navigate(`/venues?category=${encodeURIComponent(canonical)}`);
     } else {
-      setResults([]);
+      navigate(`/venues?q=${encodeURIComponent(term)}`);
     }
+
+    setSearchOpen(false);
+    setSearchText("");
   };
 
   // Centralized auth state reader
@@ -127,7 +134,7 @@ const Header = ({ onSearchResults }) => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <img className={styles.logoImg} src={logo} alt="GencFit" />
-        {/* <img className={styles.fondImg} src="https://agma.az/uploads/partners/Untitled-1.png" /> */}
+        <img className={styles.fondImg} src={fond_logo2} />
       </div>
 
       <button className={styles.burger} onClick={toggleMenu} aria-label="Menu">
@@ -164,6 +171,30 @@ const Header = ({ onSearchResults }) => {
                 <FiSearch size={20} />
               </button>
             </form>
+          )}
+          {searchOpen && searchText && (
+            <ul className={styles.suggestions}>
+              {categories
+                .filter((c) =>
+                  c.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+                .map((item, idx) => (
+                  <li
+                    key={idx}
+                    onClick={() => {
+                      const canonical = toCanonicalCategory(item.name);
+                      if (canonical)
+                        navigate(`/venues?category=${encodeURIComponent(canonical)}`);
+                      else
+                        navigate(`/venues?q=${encodeURIComponent(item.name)}`);
+                      setSearchOpen(false);
+                      setSearchText("");
+                    }}
+                  >
+                    {item.name}
+                  </li>
+                ))}
+            </ul>
           )}
         </div>
 

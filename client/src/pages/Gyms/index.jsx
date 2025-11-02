@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import styles from './Gyms.module.scss'
 import { useTranslation } from "react-i18next";
 import api from "@/api";
@@ -6,6 +6,7 @@ import { Spin } from "antd";
 import starIcon from '@/assets/images/starIcon.png'
 import locationIcon2 from '@/assets/images/locationIcon2.png'
 import { useNavigate } from 'react-router';
+import gencfit_video from "@/assets/images/gencFit_video.mp4"
 
 // --- Kateqoriya törətmə (istədiyin kimi saxla/uzat)
 const CATEGORY_KEYWORDS = {
@@ -48,9 +49,52 @@ const Gyms = () => {
   const [expanded, setExpanded] = useState(false);
 
   const { t } = useTranslation();
-
   const navigate = useNavigate();
 
+  // --- Video kontrolü
+  const videoRef = useRef(null);
+  const [showUnmute, setShowUnmute] = useState(false);
+
+  const tryAutoplayWithSound = async () => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    // “Normal” səs səviyyəsi
+    v.volume = 0.6;
+    v.muted = false;
+
+    try {
+      await v.play(); // səsli autoplay cəhdi
+      setShowUnmute(false);
+    } catch {
+      // Brauzer blokladısa, səssiz autoplay
+      v.muted = true;
+      try {
+        await v.play();
+      } catch {
+        // Nadir hallarda səssiz autoplay də bloklana bilər — istifadəçi jesti lazımdır
+      }
+      setShowUnmute(true);
+    }
+  };
+
+  useEffect(() => {
+    tryAutoplayWithSound();
+  }, []);
+
+  const handleUnmute = async () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = false;
+    v.volume = 0.6;
+    try {
+      await v.play();
+      setShowUnmute(false);
+    } catch {
+      // Əgər yenə bloklasa, istifadəçi bir daha klikləsin
+      setShowUnmute(true);
+    }
+  };
 
   const openDetail = (g) => {
     const id = g?.id || g?._id;
@@ -213,13 +257,20 @@ const Gyms = () => {
         )}
       </div>
 
-      <div className={styles.map}>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.782880987674!2d49.8671!3d40.4093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d9c9f5a88f1%3A0xa0b0f0e25e67b3d0!2sBaku!5e0!3m2!1sen!2saz!4v1693748230000!5m2!1sen!2saz"
-          allowFullScreen
-          loading="lazy"
-          className={styles.mapIframe}
-        ></iframe>
+      <div className={styles.videoWrap}>
+        <video
+          ref={videoRef}
+          className={styles.video}
+          src={gencfit_video}
+          autoPlay
+          loop
+          playsInline
+        />
+        {showUnmute && (
+          <button type="button" className={styles.unmuteBtn} onClick={handleUnmute}>
+            Səsi aç
+          </button>
+        )}
       </div>
     </div>
   )

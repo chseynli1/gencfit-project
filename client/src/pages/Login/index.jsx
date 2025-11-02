@@ -39,14 +39,14 @@ const Login = () => {
       localStorage.setItem("fullName", res.data.user.full_name);
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("phone", res.data.user.phone || "");
-localStorage.setItem("location", res.data.user.location || "");
+      localStorage.setItem("location", res.data.user.location || "");
 
       window.dispatchEvent(new Event("loginStatusChanged"));
       toast.success("Login uğurlu oldu!");
       // window.location.reload();
 
       navigate("/");
-      console.log(res.data.token)
+      // console.log(res.data.token)
     } catch (err) {
       console.error(err);
       toast.error(err.response?.data?.message || "Login uğursuz oldu!");

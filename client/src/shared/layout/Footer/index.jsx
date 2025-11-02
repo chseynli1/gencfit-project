@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./Footer.module.scss"
 import logo from "@/assets/images/ag.gencfit2.png"
+import fond_logo from "../../../assets/images/fond_logo.png";
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
@@ -14,6 +15,7 @@ const Footer = () => {
 
         <div className={styles.footerLeft}>
           <img src={logo} alt={t('footer.logoAlt')} className={styles.logo} />
+          <img src={fond_logo} className={styles.fondLogo} />
         </div>
 
         <div className={styles.footerRight}>

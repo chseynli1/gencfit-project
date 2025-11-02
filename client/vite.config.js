@@ -11,11 +11,11 @@ export default defineConfig({
 
     proxy: {
       "/api": {
-        target: "http://localhost:8001", // backend portunu yaz
+        target: "https://gencfit-backend-3-ird6.onrender.com", // backend portunu yaz
         changeOrigin: true,
         secure: false,
       },
-      '/uploads': { target: 'http://localhost:8001', changeOrigin: true },
+      '/uploads': { target: 'https://gencfit-backend-3-ird6.onrender.com', changeOrigin: true },
     },
   },
   resolve: {

@@ -1,353 +1,279 @@
 .gymsContainer {
+  display: flex;
+  height: auto;
+  width: 100%;
+  max-width: 1180px;
+  padding: 30px 130px 50px 130px;
+  gap: 50px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  .gyms {
     display: flex;
-    height: auto;
-    width: 100%;
-    max-width: 1180px;
-    padding: 30px 130px 50px 130px;
+    flex-direction: column;
     gap: 20px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-    .gyms {
+    .searchBox {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      input,
+      select {
+        width: 380px;
+        height: 48px;
+        border: 1px solid #9399A7;
+        border-radius: 10px;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #2B2C30;
+
+    .card {
+      display: flex;
+      gap: 41px;
+      width: 380px;
+      height: 125px;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+      border-radius: 5px;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(0,0,0,.08);
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #B0B0B0;
+      }
+
+      .cardContent {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
 
-        .searchBox {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .name { font-size: 16px; font-weight: 500; }
+        .description { font-size: 14px; font-weight: 300; }
 
-            input,
-            select {
-                width: 380px;
-                height: 48px;
-                border: 1px solid #9399A7;
-                border-radius: 10px;
-                padding-left: 15px;
-            }
+        .gymRating {
+          display: flex; gap: 2px;
+          background-color: #FF994C; color: #F3F4F6;
+          width: 40px; height: 20px; border-radius: 5px;
+          justify-content: center; align-items: center;
+          font-size: 10px; font-weight: 600;
+
+          img, span { background: none; }
+          img { width: 10px; height: 10px; }
         }
-    }
 
-    .cards {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        color: #2B2C30;
-        
+        .locationGyms {
+          display: flex; gap: 6px;
+          font-size: 12px; font-weight: 300;
 
-        .card {
-            display: flex;
-            gap: 41px;
-            width: 380px;
-            height: 125px;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: transform .12s ease, box-shadow .12s ease;
-            border-radius: 5px;
-            overflow: hidden;
-
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 22px rgba(0, 0, 0, .08);
-            }
-
-            &:not(:last-child) {
-                border-bottom: 1px solid #B0B0B0; 
-            }
-
-
-            .cardContent {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                .name {
-                    font-size: 16px;
-                    font-weight: 500;
-                }
-
-                .description {
-                    font-size: 14px;
-                    font-weight: 300;
-                }
-
-                .gymRating {
-                    display: flex;
-                    gap: 2px;
-                    background-color: #FF994C;
-                    color: #F3F4F6;
-                    width: 40px;
-                    height: 20px;
-                    border-radius: 5px;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 10px;
-                    font-weight: 600;
-
-                    img,
-                    span {
-                        background: none;
-                    }
-
-                    img {
-                        width: 10px;
-                        height: 10px;
-                    }
-                }
-
-
-                .locationGyms {
-                    display: flex;
-                    gap: 6px;
-                    font-size: 12px;
-                    font-weight: 300;
-
-                    img {
-                        width: 12.3px;
-                        height: 12.3px;
-                    }
-                }
-            }
-
-            .cardImage {
-                width: 179px;
-                height: 104px;
-            }
+          img { width: 12.3px; height: 12.3px; }
         }
+      }
+
+      .cardImage {
+        width: 179px; height: 104px;
+        object-fit: cover; border-radius: 6px;
+      }
     }
+  }
 
+  /* === MAP əvəzinə VIDEO === */
+  .videoWrap {
+    position: relative;
+    /* sağ panel kimi davransın */
+    width: 1018;
+    padding-top: 50px;
+    // max-width: 100%;
+  }
 
-    .map {
-        iframe {
-            width: 780px;
-            height: 818px;
-            border: 1px solid #ABB2BF;
-            border-radius: 10px;
-        }
-    }
-}
-
-.loaderWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-
-.moreWrap {
-    display: flex;
-    justify-content: center;
-    margin: 16px 0 0;
-}
-
-.moreBtn {
-    padding: 10px 16px;
+  .video {
+    width: 1018px;
+    // max-width: 100%;
+    height: 620px;                 /* desktopda köhnə map ölçüsünə bənzər */
+    border: 1px solid #ABB2BF;
     border-radius: 10px;
-    background: #022BD1;
+    object-fit: contain;             /* çərçivəni doldursun */
+  }
+
+  .unmuteBtn {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.35);
+    background: rgba(0,0,0,.45);
     color: #fff;
-    border: none;
     font-weight: 600;
     cursor: pointer;
-    transition: filter .15s ease, transform .08s ease;
+    backdrop-filter: blur(6px);
+    transition: transform .08s ease, filter .15s ease;
+
+    &:hover { filter: brightness(1.08); }
+    &:active { transform: translateY(1px); }
+  }
 }
 
-.moreBtn:hover {
-    filter: brightness(1.05);
+/* Loader, moreBtn — toxunma */
+.loaderWrapper {
+  display: flex; justify-content: center; align-items: center; height: 100vh;
 }
-
-.moreBtn:active {
-    transform: translateY(1px);
+.moreWrap { display: flex; justify-content: center; margin: 16px 0 0; }
+.moreBtn {
+  padding: 10px 16px; border-radius: 10px; background: #022BD1; color: #fff;
+  border: none; font-weight: 600; cursor: pointer; transition: filter .15s, transform .08s;
 }
+.moreBtn:hover { filter: brightness(1.05); }
+.moreBtn:active { transform: translateY(1px); }
 
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1200px), (max-width: 1024px) {
+  .gymsContainer {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    height: auto;
+    padding: 24px 48px 0 48px;
+    gap: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
 
-
-@media (max-width: 1200px),
-(max-width: 1024px) {
-    .gymsContainer {
-        width: 100%;
-        max-width: 1180px;
-        margin: 0 auto;
-        height: auto;
-        padding: 24px 48px 0 48px;
-        gap: 20px;
-        box-sizing: border-box;
-        overflow-x: hidden;
-
-        .gyms .searchBox {
-
-            input,
-            select {
-                width: 100%;
-                max-width: 420px;
-            }
-        }
-
-        .cards .card {
-            width: 420px;
-        }
-
-        .map iframe {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            aspect-ratio: 4 / 3;
-        }
+    .gyms .searchBox {
+      input, select { width: 100%; max-width: 420px; }
     }
+
+    .cards .card { width: 420px; }
+
+    /* video — map kimi davranır, ancaq aspect-ratio ilə daha adaptiv */
+    .videoWrap { width: 100%; max-width: 700px; }
+    .video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;        /* tablet görünüşü */
+    }
+  }
 }
 
 @media (max-width: 768px) {
-    .gymsContainer {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px 24px 0 24px;
-        gap: 16px;
+  .gymsContainer {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 24px 0 24px;
+    gap: 16px;
 
-        .gyms {
-            width: 100%;
-        }
+    .gyms { width: 100%; }
 
-        .gyms .searchBox {
-            gap: 12px;
-
-            input,
-            select {
-                width: 100%;
-                height: 44px;
-            }
-        }
-
-        .cards {
-            gap: 16px;
-
-            .card {
-                width: 100%;
-                max-width: 100%;
-                gap: 16px;
-                padding-bottom: 16px;
-            }
-        }
-
-        .map iframe {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            aspect-ratio: 3 / 2;
-        }
+    .gyms .searchBox {
+      gap: 12px;
+      input, select { width: 100%; height: 44px; }
     }
+
+    .cards {
+      gap: 16px;
+
+      .card {
+        width: 100%;
+        max-width: 100%;
+        gap: 16px;
+        padding-bottom: 16px;
+      }
+    }
+
+    .videoWrap { width: 100%; max-width: 100%; }
+    .video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;        /* mobil üçün daha hündür kadr */
+    }
+  }
 }
 
 @media (max-width: 480px) {
-    .gymsContainer {
-        padding: 16px 0 0 0;
-        margin: 0;
-        overflow-x: hidden;
+  .gymsContainer {
+    padding: 16px 0 0 0; margin: 0; overflow-x: hidden;
 
-        .gyms {
-            padding: 0 12px;
-            box-sizing: border-box;
+    .gyms { padding: 0 12px; box-sizing: border-box; }
+
+    .cards {
+      gap: 12px;
+
+      .card {
+        height: auto; padding-bottom: 12px;
+
+        .cardContent {
+          gap: 8px;
+          .name { font-size: 15px; }
+          .description { font-size: 13px; }
+          .gymRating { width: 42px; height: 20px; font-size: 10px; }
+          .locationGyms { font-size: 12px; }
         }
 
-        .cards {
-            gap: 12px;
-
-            .card {
-                height: auto;
-                padding-bottom: 12px;
-
-                .cardContent {
-                    gap: 8px;
-
-                    .name {
-                        font-size: 15px;
-                    }
-
-                    .description {
-                        font-size: 13px;
-                    }
-
-                    .gymRating {
-                        width: 42px;
-                        height: 20px;
-                        font-size: 10px;
-                    }
-
-                    .locationGyms {
-                        font-size: 12px;
-                    }
-                }
-
-                .cardImage {
-                    width: 36%;
-                    max-width: 160px;
-                    height: auto;
-                    aspect-ratio: 16 / 10;
-                    object-fit: cover;
-                    border-radius: 8px;
-                }
-            }
+        .cardImage {
+          width: 36%;
+          max-width: 160px;
+          height: auto;
+          aspect-ratio: 16 / 10;
+          object-fit: cover;
+          border-radius: 8px;
         }
-
-        .map {
-            padding: 0 12px 16px;
-            box-sizing: border-box;
-        }
-
-        .mapIframe {
-            width: 100% !important;
-            max-width: 100% !important;
-            height: auto !important;
-            aspect-ratio: 3 / 2;
-            border-radius: 10px;
-        }
+      }
     }
 
-    :global(html),
-    :global(body) {
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-x: hidden !important;
+    .videoWrap { padding: 0 12px 16px; box-sizing: border-box; }
+    .video {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 3 / 2;
+      border-radius: 10px;
     }
+  }
+
+  :global(html), :global(body) {
+    margin: 0 !important; padding: 0 !important; overflow-x: hidden !important;
+  }
 }
 
 @media (max-width: 360px) {
-    .gymsContainer .gyms {
-        padding: 0 10px;
-    }
+  .gymsContainer .gyms { padding: 0 10px; }
 
-    .cards .card {
-        gap: 12px;
+  .cards .card {
+    gap: 12px;
 
-        .cardImage {
-            max-width: 140px;
-            border-radius: 6px;
-        }
-    }
+    .cardImage { max-width: 140px; border-radius: 6px; }
+  }
 }
 
 @media (max-width: 320px) {
-    .gymsContainer {
-        padding: 12px 0 0 0 !important;
+  .gymsContainer {
+    padding: 12px 0 0 0 !important;
 
-        .gyms {
-            padding: 0 8px;
+    .gyms { padding: 0 8px; }
+
+    .cards {
+      gap: 10px;
+
+      .card {
+        gap: 10px;
+
+        .cardImage {
+          max-width: 128px;
+          aspect-ratio: 16 / 11;
         }
-
-        .cards {
-            gap: 10px;
-
-            .card {
-                gap: 10px;
-
-                .cardImage {
-                    max-width: 128px;
-                    aspect-ratio: 16 / 11;
-                }
-            }
-        }
-
-        .map {
-            padding: 0 8px 12px;
-        }
+      }
     }
+
+    .videoWrap { padding: 0 8px 12px; }
+  }
 }

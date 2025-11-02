@@ -9,7 +9,8 @@ export const Urls = {
     GYMS: '/gyms',
     BLOG: '/blog',
     PARTNERS: '/partners',
-    PROFILE: '/profile'
+    PROFILE: '/profile',
+    VENUES_LIST: '/venues'
 }
 
 export const ErrorCodes = {

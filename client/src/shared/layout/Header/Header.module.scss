@@ -1,337 +1,367 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f7f8fa;
-    padding: 28px 130px;
-    font-family: 'Arial', sans-serif;
-    height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f7f8fa;
+  padding: 28px 130px;
+  font-family: 'Arial', sans-serif;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .logo {
-    width: 100px;
-    max-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    display: flex;
-    gap: 30px;
+  min-width: 100px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  display: flex;
+  gap: 30px;
 }
 
 .logoImg {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    display: block;
-    object-fit: contain;
+  width: auto;
+  height: 40px;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
-// .fondImg{
-//   width: 200px;
-//   height: 40px;
-// }
+.fondImg {
+  width: auto;
+  height: 40px;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
 
 .logoBlue {
-    color: #0051ff;
+  color: #0051ff;
 }
 
 .logoOrange {
-    color: #ff6b00;
+  color: #ff6b00;
 }
 
 .nav {
-    display: flex;
-    gap: 25px;
+  display: flex;
+  gap: 25px;
 
-    a {
-        text-decoration: none;
-        color: #000;
-        font-weight: 500;
-        transition: color 0.2s;
+  a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.2s;
 
-        &:hover {
-            color: #0051ff;
-        }
+    &:hover {
+      color: #0051ff;
     }
+  }
 }
 
 .languageWrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
 }
 
 .languageSelector {
-    position: relative;
+  position: relative;
 }
 
 .langBtn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .dropdown {
-    position: absolute;
-    top: 35px;
-    left: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 4px 0;
-    z-index: 100;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 0;
+  z-index: 100;
 
-    li {
-        list-style: none;
-        padding: 6px 12px;
-        cursor: pointer;
+  li {
+    list-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
 
-        &:hover {
-            background-color: #f0f0f0;
-        }
+    &:hover {
+      background-color: #f0f0f0;
     }
+  }
 }
 
 .register {
-    background-color: #0051ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
+  background-color: #0051ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
 
-    &:hover {
-        background-color: #003bcc;
-    }
+  &:hover {
+    background-color: #003bcc;
+  }
 }
 
 .burger {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 26px;
-    cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
 }
 
 .searchWrapper {
-    position: relative;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .searchBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 5px;
 
-    .searchBtn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #333;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 5px;
+    &:hover {
+      color: #000;
+    }
+  }
 
-        &:hover {
-            color: #000;
-        }
+  .searchForm {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.2s ease;
+
+    input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      width: 150px;
     }
 
-    .searchForm {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        background: white;
-        border: 1px solid #ccc;
-        border-radius: 20px;
-        padding: 5px 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        animation: fadeIn 0.2s ease;
-
-        input {
-            border: none;
-            outline: none;
-            font-size: 14px;
-            width: 150px;
-        }
-
-        button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #333;
-        }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
     }
+  }
 
-    .searchResults {
-        position: absolute;
-        top: 40px;
-        left: 0;
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        width: 200px;
-        list-style: none;
-        padding: 5px 0;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        z-index: 1000;
+  .searchResults {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    list-style: none;
+    padding: 5px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
 
-        li {
-            padding: 8px 12px;
-            cursor: pointer;
+    li {
+      padding: 8px 12px;
+      cursor: pointer;
 
-            &:hover {
-                background: #f5f5f5;
-            }
-        }
+      &:hover {
+        background: #f5f5f5;
+      }
     }
+  }
 
 
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
 .profileCircleBtn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #4caf50;
-    color: white;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .profileAvatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 9999px;
-    object-fit: cover;
-    display: inline-block;
-    border: 2px solid #e5e7eb;
-    margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  object-fit: cover;
+  display: inline-block;
+  border: 2px solid #e5e7eb;
+  margin-right: 10px;
 }
 
 .profileCircleBtn {
-    width: 36px;
-    height: 36px;
-    border-radius: 9999px;
-    background: #003bcc;
-    color: #fff;
-    font-weight: 700;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  background: #003bcc;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
 }
 
 .logoutIconBtn {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    border: 1px solid #e5e7eb;
-    background: #fff;
-    color: #003bcc;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background .15s, opacity .2s;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #003bcc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .15s, opacity .2s;
 }
 
 .logoutIconBtn:hover {
-    background: #f9fafb;
+  background: #f9fafb;
 }
 
 .logoutIconBtn:active {
-    opacity: .9;
+  opacity: .9;
 }
 
 .modalOverlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(17, 24, 39, 0.55);
-    display: grid;
-    place-items: center;
-    z-index: 9999;
-    padding: 16px;
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 16px;
 }
 
 .modalCard {
-    width: 100%;
-    max-width: 460px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-    padding: 20px 18px;
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  padding: 20px 18px;
 }
 
 .modalTitle {
-    margin: 6px 0 4px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #111827;
+  margin: 6px 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
 }
 
 .modalText {
-    margin: 0 0 16px;
-    color: #374151;
-    font-size: 14px;
+  margin: 0 0 16px;
+  color: #374151;
+  font-size: 14px;
 }
 
 .modalActions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .modalBtnSecondary,
 .modalBtnPrimary {
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .modalBtnSecondary {
-    background: #f3f4f6;
-    color: #111827;
+  background: #f3f4f6;
+  color: #111827;
 }
 
 .modalBtnSecondary:hover {
-    background: #e5e7eb;
+  background: #e5e7eb;
 }
 
 .modalBtnPrimary {
-    background: #003bcc;
-    color: #fff;
+  background: #003bcc;
+  color: #fff;
 }
 
 .modalBtnPrimary:hover {
-    opacity: .95;
+  opacity: .95;
+}
+
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 50;
+  list-style: none;
+  padding: 6px 0;
+  margin: 4px 0 0;
+
+  li {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+
+    &:hover {
+      background: #f1f5f9;
+    }
+  }
 }
 
 
@@ -350,6 +380,10 @@
   .searchWrapper .searchForm input {
     width: 200px;
   }
+
+  .fondImg {
+    width: 110px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -362,10 +396,16 @@
   .logo {
     order: 1;
   }
+
+  .fondImg {
+    width: 100px;
+  }
+
   .languageWrapper {
     order: 2;
     margin-left: auto;
   }
+
   .burger {
     order: 3;
     display: inline-flex;
@@ -426,6 +466,11 @@
   }
 
   .logo {
+    // width: 90px;
+    gap: 12px;
+  }
+
+  .fondImg {
     width: 90px;
   }
 
@@ -471,6 +516,11 @@
   }
 
   .logo {
+    // width: 80px;
+    gap: 10px;
+  }
+
+   .fondImg {
     width: 80px;
   }
 
@@ -557,6 +607,10 @@
     width: 72px;
   }
 
+  .fondImg {
+    width: 72px;
+  }
+
   .nav {
     top: 60px;
     padding: 10px 12px 14px;
@@ -591,6 +645,15 @@
 @media (max-width: 320px) {
   .header {
     padding: 12px 10px;
+  }
+
+  .logo{
+    width: 130px;
+    gap: 5px;
+  }
+
+   .fondImg {
+    width: 68px;
   }
 
   .nav {
